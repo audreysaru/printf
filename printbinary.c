@@ -8,10 +8,10 @@
 
 int print_bin(va_list arg)
 {
-	int flap = 0;
+	int flag = 0;
 	int cont = 0;
 	int i, a = 1, b;
-	unsigned int num = va arg(arg, unsigned int);
+	unsigned int num = va_arg(arg, unsigned int);
 	unsigned int p;
 
 	for (i = 0; i < 32; i++)

@@ -11,8 +11,8 @@ int print_rot13(va_list arg)
 	int i, j, counter = 0;
 	int k = 0;
 	char *s = va_arg(arg, char*);
-	char a[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"}
-	char b[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"}
+	char a[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+	char b[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
 
 	if (s == NULL)
 		s = "(null)";
@@ -23,7 +23,7 @@ int print_rot13(va_list arg)
 		{
 			if (s[i] == a[j])
 			{
-				_putchar(b(j));
+				_putchar(b[j]);
 				counter++;
 				k = 1;
 			}

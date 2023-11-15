@@ -1,4 +1,4 @@
-#include "mian.h"
+#include "main.h"
 
 /**
  * print_oct - converts to octal values
@@ -20,8 +20,6 @@ int print_oct(va_list arg)
 	}
 	counter++;
 	array = malloc(sizeof(int) * counter);
-	if (array == NULL)
-		return (NULL);
 	for (i = 0; i < counter; i++)
 	{
 		array[i] = tem % 8;

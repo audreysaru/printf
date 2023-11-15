@@ -20,8 +20,6 @@ int print_hex(va_list arg)
 	}
 	counter++;
 	array = malloc(sizeof(int) * counter);
-	if (array == NULL)
-		return (NULL);
 	for (i = 0; i < counter; i++)
 	{
 		array[i] = tem % 16;

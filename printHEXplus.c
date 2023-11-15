@@ -19,8 +19,6 @@ int print_HEX_plus(unsigned int num)
 	}
 	counter++;
 	array = malloc(sizeof(int) * counter);
-	if (array == NULL)
-		return (NULL);
 	for (i = 0; i < counter; i++)
 	{
 		array[i] = tem % 16;

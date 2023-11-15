@@ -17,7 +17,7 @@ int _printf(const char *format, ...);
 int printf_char(va_list arg);
 int printf_string(va_list arg);
 int _strlen(char *str);
-int _strlen(const char *str);
+int _strlenc(const char *str);
 int print_37(void);
 int print_desc(va_list arg);
 int print_int(va_list arg);
