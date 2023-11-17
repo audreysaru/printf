@@ -25,7 +25,7 @@ int print_hex(va_list arg)
 		array[i] = tem % 16;
 		tem = tem / 16;
 	}
-	for (i = counter - 1; i >= 0; i++)
+	for (i = counter - 1; i >= 0; i--)
 	{
 		if (array[i] > 0)
 			array[i] = array[i] + 39;

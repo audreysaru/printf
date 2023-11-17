@@ -16,7 +16,7 @@ int _strlen(char *str)
 }
 
 /**
- * _strlen - strlen function but for constant char printing str
+ * _strlenc - strlen function but for constant char printing str
  * @str: string
  * Return: i
  */

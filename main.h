@@ -6,6 +6,12 @@
 #include <stdarg.h>
 #include <unistd.h>
 
+/**
+ * struct format - Structure to store format specifiers and functions
+ * @id: Format specifier string (e.g., "%c", "%s", "%d", ...)
+ * @f: Pointer to the function that handles the format specifier
+ */
+
 typedef struct format
 {
 	char *id;
@@ -19,6 +25,7 @@ int printf_string(va_list arg);
 int _strlen(char *str);
 int _strlenc(const char *str);
 int print_37(void);
+int print_number(int n);
 int print_desc(va_list arg);
 int print_int(va_list arg);
 int print_bin(va_list arg);

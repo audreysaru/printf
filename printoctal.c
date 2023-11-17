@@ -8,25 +8,26 @@
 
 int print_oct(va_list arg)
 {
-	int i, counter = 0;
-	int *array;
 	unsigned int num = va_arg(arg, unsigned int);
-	unsigned int tem = num;
+	int *array, i;
+	int counter = 0;
 
-	while (num / 8 != 0)
+	array = malloc(sizeof(int) * 11);
+	if (array == NULL)
 	{
-		num = num / 8;
+		return -1;
+	}
+
+	while (num > 0)
+	{
+		array[counter] = num % 8;
+		num /= 8;
 		counter++;
 	}
-	counter++;
-	array = malloc(sizeof(int) * counter);
-	for (i = 0; i < counter; i++)
-	{
-		array[i] = tem % 8;
-		tem = tem / 8;
-	}
-	for (i = counter - 1; i >= 0; i++)
+	
+	for (i = counter - 1; i >= 0; i--)
 		_putchar(array[i] + '0');
+	
 	free(array);
 	return (counter);
 }

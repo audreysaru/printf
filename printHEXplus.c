@@ -12,23 +12,32 @@ int print_HEX_plus(unsigned int num)
 	int *array;
 	unsigned int tem = num;
 
-	while (num / 16 != 0)
+	while (tem / 16 != 0)
 	{
-		num = num / 16;
+		tem = tem / 16;
 		counter++;
 	}
 	counter++;
 	array = malloc(sizeof(int) * counter);
+	if (array == NULL)
+	{
+		return -1;
+	}
 	for (i = 0; i < counter; i++)
 	{
-		array[i] = tem % 16;
-		tem = tem / 16;
+		array[i] = num % 16;
+		num = num / 16;
 	}
-	for (i = counter - 1; i >= 0; i++)
+	for (i = counter - 1; i >= 0; i--)
 	{
-		if (array[i] > 0)
-			array[i] = array[i] + 7;
-		_putchar(array[i] + '0');
+		if (array[i] >= 10 && array[i] <= 15)
+		{
+			_putchar(array[i] - 10 + 'A');
+		}
+		else
+		{
+			_putchar(array[i] + '0');
+		}
 	}
 	free(array);
 	return (counter);

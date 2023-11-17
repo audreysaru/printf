@@ -8,8 +8,8 @@
 
 int print_hex_plus(unsigned long int num)
 {
-	long int i, counter = 0;
-	long int *array;
+	int i, counter = 0;
+	int *array;
 	unsigned long int tem = num;
 
 	while (num / 16 != 0)
@@ -18,15 +18,19 @@ int print_hex_plus(unsigned long int num)
 		counter++;
 	}
 	counter++;
-	array = malloc(sizeof(long int) * counter);
+	array = malloc(sizeof(int) * counter);
+	if (array == NULL)
+	{
+		return -1;
+	}
 	for (i = 0; i < counter; i++)
 	{
 		array[i] = tem % 16;
 		tem = tem / 16;
 	}
-	for (i = counter - 1; i >= 0; i++)
+	for (i = counter - 1; i >= 0; i--)
 	{
-		if (array[i] > 0)
+		if (array[i] > 9)
 			array[i] = array[i] + 39;
 		_putchar(array[i] + '0');
 	}

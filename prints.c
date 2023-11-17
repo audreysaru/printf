@@ -17,15 +17,12 @@ int printf_string(va_list arg)
 	{
 		str = "(null)";
 		length = _strlen(str);
-		for (i = 0; i < length; i++)
-			_putchar(str[i]);
-		return (length);
 	}
 	else
 	{
 		length = _strlen(str);
 		for (i = 0; i < length; i++)
 			_putchar(str[i]);
-		return (length);
 	}
+	return (length);
 }

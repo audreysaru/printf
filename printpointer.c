@@ -9,15 +9,18 @@
 int print_pointer(va_list arg)
 {
 	void *p;
-	char *s = "(null)";
-	long int a;
-	int i, b;
+	const char *s = "(null)";
+	int i = 0, b;
+	unsigned long int a;
 
 	p = va_arg(arg, void *);
 	if (p == NULL)
 	{
-		for (i = 0; s[i] != '\0'; i++)
+		while (s[i] != '\0')
+		{
 			_putchar(s[i]);
+			i++;
+		}
 		return (i);
 	}
 	a = (unsigned long int)p;
