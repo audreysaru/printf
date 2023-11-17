@@ -8,29 +8,30 @@
 
 int print_hex(va_list arg)
 {
-	int i, counter = 0;
-	int *array;
 	unsigned int num = va_arg(arg, unsigned int);
-	unsigned int tem = num;
+	int counter = 0;
+	int i;
 
-	while (num / 16 != 0)
+	char hex_digits[] = "0123456789abcdef";
+
+	char result[20];
+
+	if (num == 0)
 	{
+		_putchar('0');
+		return (1);
+	}
+
+	while (num != 0)
+	{
+		int remainder = num % 16;
+		result[counter++] = hex_digits[remainder];
 		num = num / 16;
-		counter++;
 	}
-	counter++;
-	array = malloc(sizeof(int) * counter);
-	for (i = 0; i < counter; i++)
-	{
-		array[i] = tem % 16;
-		tem = tem / 16;
-	}
+
 	for (i = counter - 1; i >= 0; i--)
 	{
-		if (array[i] > 0)
-			array[i] = array[i] + 39;
-		_putchar(array[i] + '0');
+		_putchar(result[i]);
 	}
-	free(array);
 	return (counter);
 }

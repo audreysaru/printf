@@ -39,10 +39,10 @@ int print_number(int n)
 
 int print_int(va_list arg)
 {
-	return (print_number(va_arg(arg, int)));
+        return (print_number(va_arg(arg, int)));
 }
 
 int print_desc(va_list arg)
 {
-	return (print_number(va_arg(arg, int)));
+        return (print_number(va_arg(arg, int)));
 }

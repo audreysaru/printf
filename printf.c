@@ -32,23 +32,35 @@ int _printf(const char *format, ...)
 	va_start(arg, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-Here:
+
 	while (format[i] != '\0')
 	{
-		j = 13;
-		while (j >= 0)
+		if (format[i] == '%' && format[i + 1] != '\0')
 		{
-			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+			j = 0;
+			while (j < 14)
 			{
-				len = len + m[j].f(arg);
-				i = i + 2;
-				goto Here;
+				if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+				{
+					len = len + m[j].f(arg);
+					i = i + 2;
+					break;
+				}
+				j++;
 			}
-			j--;
+			if (j == 14)
+			{
+				_putchar(format[i]);
+				len++;
+				i++;
+			}
 		}
-		_putchar(format[i]);
-		i++;
-		len++;
+		else
+		{
+			_putchar(format[i]);
+			len++;
+			i++;
+		}
 	}
 	va_end(arg);
 	return (len);
