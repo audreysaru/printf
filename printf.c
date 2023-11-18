@@ -22,7 +22,11 @@ int _printf(const char *format, ...)
 		{"%S", print_exec_string},
 		{"%p", print_pointer},
 		{"%r", print_rev},
-		{"%R", print_rot13}
+		{"%R", print_rot13},
+		{"%ld", print_long_decimal},
+		{"%lu", print_long_unsigned},
+		{"%hd", print_short_decimal},
+		{"%hu", print_short_unsigned}
 	};
 
 	va_list arg;
@@ -38,7 +42,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			j = 0;
-			while (j < 14)
+			while (j < 18)
 			{
 				if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
 				{
@@ -48,7 +52,7 @@ int _printf(const char *format, ...)
 				}
 				j++;
 			}
-			if (j == 14)
+			if (j == 18)
 			{
 				_putchar(format[i]);
 				len++;
